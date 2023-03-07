@@ -1,33 +1,28 @@
 # Umask
 
-## Dərs Məzmunu
+## Lesson Content
 
-Yaradılan hər fayl, standart icazələr ilə yaradılır. Standart icazələri dəyişdirmək üçün, umask təlimatın istifadə olunur.
-Bu təlimat digər rəqəmsal icazələrdə olunduğu kimi 3 bit dəyər qəbul edir.
-Lakin umask verilən 3 bit dəyəri icazəyə əlavə etmir, tam tərsinə verilən dəyər qədər icazəni azladır. 
+Every file that gets created comes with a default set of permissions. If you ever wanted to change that default set of permissions, you can do so with the umask command. This command takes the 3 bit permission set we see in numerical permissions. 
+
+Instead of adding these permissions though, umask takes away these permissions. 
 
 <pre>$ umask 021</pre>
 
-Verilən nümunədə, biz artıq yeni yaradılacaq olan faylda istifadəçiyə tam icazəni qoruyuruq, qruplar üçün yazma icazəsini, digərləri üçün isə icra etmə icazəsini ləğv edirik.
+In the above example, we are stating that we want the default permissions of new files to allow users access to everything, but for groups we want to take away their write permission and for others we want to take away their executable permission. The default umask on most distributions is 022, meaning all user access, but no write access for group and other users.
 
-Paylama dəstlərinin (Distribution) çoxunda standart olaraq umask 022 dəyəri istifadə olunur, 
-bu o deməkdir ki, istifadəçiyə tam icazə verilir, qruplara və digər istifadəçilərə isə yazma icazəsi verilmir.
+When you run the umask command it will give that default set of permissions on any new file you make. However, if you want it to persist you'll have to modify your startup file (.profile), but we'll discuss that in a later lesson.
 
-Umask təlimatını daxil etdiyimizdə yeni yaradılacaq fayllar üçün yeni icazələri bizə göstəriləcək.
-Bu icazə dəyərlərini qeyd etmək üçün başlanğıç faylı da (.profile) dəyişdirməyimiz lazımdır, lakin bu başqa dərsin mövzusudur.  
-
-
-## Çalışma
+## Exercise
 
 <ol>
-<li>Yeni bir fayl yaradın və onun icazələrini qeyd edin</li>
-<li>Umask təlimatı ilə icazələri dəyişdirin</li>
-<li>Yaradılan fayl üçün icazələri yenidən yoxlayın, nə dəyişdi?</li>
+<li>Create a new file, then note it's permissions.</li>
+<li>Modify the umask and then create another new file.</li>
+<li>Check the permissions once more on the new file, what do you expect to see?</li>
 <ol>
 
 ## Quiz Question
 
-Faylların standart icazələrini dəyişdirmək üçün hansı təlimat istifadə olunur?
+What command is used to change default file permissions?
 
 ## Quiz Answer
 
