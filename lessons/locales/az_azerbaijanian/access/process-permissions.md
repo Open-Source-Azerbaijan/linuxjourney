@@ -12,7 +12,7 @@ Başladılan proses istifadəçi və ya qrup istifadəçilərin verdiyi əmr il�
 
 Sonuncu UID <b>saved user ID</b>  isə , effective UID və real UID arasında seçim etməyə icazə verir.Bu bizə yerinə uyğun istifadəyə imkan yaradır. 
 
-Gəlin passwd əmrinə bird aha nəzər salaq.
+Gəlin passwd əmrinə bird daha nəzər salaq.
 
 When running the passwd command, your effective UID is your user ID, let's say its 500 for now. Oh but wait, remember the passwd command has the SUID permission enabled. So when you run it, your effective UID is now 0 (0 is the UID of root). Now this program can access files as root.
 
