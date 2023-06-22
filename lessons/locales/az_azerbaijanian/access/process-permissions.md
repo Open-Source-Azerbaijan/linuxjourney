@@ -3,21 +3,16 @@
 ## Dərsin Məzmunu
 
 
-Let's segway into process permissions for a bit, 
-remember how I told you that when you run the passwd command with 
-the SUID permission bit enabled you will run the program as root? 
-That is true, however does that mean since you are temporarily 
-root you can modify other user's passwords? Nope fortunately not!
+Gəlin birbaşa process icazələrinə (process permissions) nəzər yetirək. Əvvəl də dediyimiz kimi, passwd əmrini SUID icazə bit- I ilə başladanda proqram kök sistemdən hərəkətə gəlir. Buna baxmayaraq , kök sistemdən qısa müddətli istifadə digərlərinin istifadəçi password- lərini dəyişə biləcəyiniz anlamına gəlmir.
+Bu Linux- un həyata keçirdiyi çoxsaylı UIDs sayəsindədir. Hər bir proseslə əlaqələnən 3 UIDs növü vardır:
 
-This is because of the many UIDs that Linux implements. There are three UIDS associated with every process:
+Başladılan proses istifadəçi və ya qrup istifadəçilərin verdiyi əmr ilə işləyir. Bu  <b>effective user ID</b> adı ilə tanınır. Bu UID prosesə çıxış icəzəsi verməkçün istifadə olunur. Misal üçün , Bob touch əmrini başlatsa proses onun adı ilə işləyir və onun yaratdığı bütün fayllar onun öhdəliyində olur.
 
-When you launch a process, it runs with the same permissions as the user or group that ran it, this is known as an <b>effective user ID</b>. This UID is used to grant access rights to a process. So naturally if Bob ran the touch command, the process would run as him and any files he created would be under his ownership.
+<b>real user ID</b> adlanan daha bir UID vardır ki, bu proses başladan istifadəçinin İD- sidir. Bu UID prosesi başladan şəxsin kimliyini izləmək üçün istifadə olunur.
 
-There is another UID, called the <b>real user ID</b> this is the ID of the user that launched the process. These are used to track down who the user who launched the process is.
+Sonuncu UID <b>saved user ID</b>  isə , effective UID və real UID arasında seçim etməyə icazə verir.Bu bizə yerinə uyğun istifadəyə imkan yaradır. 
 
-One last UID is the <b>saved user ID</b>, this allows a process to switch between the effective UID and real UID, vice versa. This is useful because we don't want our process to run with elevated privileges all the time, it's just good practice to use special privileges at specific times. 
-
-Now let's piece these all together by looking at the passwd command once more. 
+Gəlin passwd əmrinə bird aha nəzər salaq.
 
 When running the passwd command, your effective UID is your user ID, let's say its 500 for now. Oh but wait, remember the passwd command has the SUID permission enabled. So when you run it, your effective UID is now 0 (0 is the UID of root). Now this program can access files as root.
 
