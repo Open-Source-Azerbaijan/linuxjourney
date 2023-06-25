@@ -10,32 +10,35 @@ Başladılan proses istifadəçi və ya qrup istifadəçilərin verdiyi əmr il�
 
 <b>real user ID</b> adlanan daha bir UID vardır ki, bu proses başladan istifadəçinin İD- sidir. Bu UID prosesi başladan şəxsin kimliyini izləmək üçün istifadə olunur.
 
-Sonuncu UID <b>saved user ID</b>  isə , effective UID və real UID arasında seçim etməyə icazə verir.Bu bizə yerinə uyğun istifadəyə imkan yaradır. 
+Sonuncu UID <b>saved user ID</b>  isə , effective UID və real UID arasında seçim etməyə icazə verir.Bu bizə yerinə uyğun istifadəyə imkanı yaradır. 
 
 Gəlin passwd əmrinə bird daha nəzər salaq.
 
-When running the passwd command, your effective UID is your user ID, let's say its 500 for now. Oh but wait, remember the passwd command has the SUID permission enabled. So when you run it, your effective UID is now 0 (0 is the UID of root). Now this program can access files as root.
+Passwd əmrini başladarkən sizin effective UID-niz sizin istifadəçi İD- niz (user ID) olur. Məsələn, 500.
+Ancaq  unutmayın ki, passwd əmrinin SUID icazəsi aktiv olduğundan, siz onu başladarkən effective UID 0-a bərabərləşir. 0- da kök UİD (root UİD) olduğu üçün, proqram fayllara kök istifadəçi kimi çıxış tapa bilir.
 
-Let's say you get a little taste of power and you want to modify Sally's password, Sally has a UID of 600. Well you'll be out of luck, fortunately the process also has your real UID in this case 500. It knows that your UID is 500 and therefore you can't modify the password of UID of 600. (This of course is always bypassed if you are a superuser on a machine and can control and change everything).
+Deyək ki, bu şəraitdə siz Sally-nin parolunda dəyişiklik etmək qərarına gəldiniz və onun UİD-si 600- ə bərabərdir. Bu sizdə alınmayacaq. Beləki proses sizin UİD- nizin 500 olduğunu bildiyi üçün sizin UİD- si 600 olan parolun dəyişdirmənizə imkan verməyəcək. Əlbəttə siz super istifadəçi (superuser) deyilsinizsə. Super istifadəçilər prosesdə olan hər bir şeyi idarə edə və dəyişə bilər.
 
-Since you ran passwd, it will start the process off using your real UID, and it will save the UID of the owner of the file (effective UID), so you can switch between the two. No need to modify all files with root access if it's not required. 
+Siz passwd əmrini işə salarkən , proses sizing əsl UİD- nizi (real UID) başladır və eyni zamanda fayl sahibinin UİD- sini (effective UID) də qeyd edir ki, siz onların arasında keçid edə bilirsiz. Əgər ehtiyac yaranmırsa bütün fayllara kök istifadəçisi səviyyəsində dəyişiklik etməyə lazim gəlmir.
 
-Most of the time the real UID and the effective UID are the same, but in such cases as the passwd command they will change.
+Bir çox hallarda real UID və effective UID tamamilə eynidir, onlar yalnız  passwd əmrin də olduğu kimi hallarda dəyişə bilirlər.
 
-## Exercise
+## Çalışma
 
-We haven't discussed processes yet, we can still take a look at this change happening in real time: 
+Biz hələ də prosesi müzakirə etməmişik. Biz hal-hazırda olan dəyişikliklərə nəzər sala bilərik: 
 
 <ol>
-<li>Open one terminal window, and run the command: <b>watch -n 1 "ps aux | grep passwd"</b>. This will watch for the passwd process.</li>
-<li>Open a second terminal window and run: <b>passwd</b></li>
-<li>Look at the first terminal window, you'll see a process come up for passwd. The first column in the process table is the effective user ID, lo and behold it's the root user!</li>
+<li>Terminal pəncərəsini açın və əmri işə salın: <b>watch -n 1 "ps aux | grep passwd"</b>.  Bu passwd process- sinə nəzarət edəcək.</li>
+<li>İkinci terminal pəncərəsini açın və işə salın: <b>passwd</b></li>
+<li>Birinci terminal pəncərəsinə baxın, passwd üçün proses başladığını görəcəksiz. The first column in the process table is the effective user ID, lo and behold it's the root user!Proses cədvəlindəki ilk sütun effective user ID- dir, təəccüblü olsa da həmçinin kök istifadəçidir.</li>
 </ol>
 
-## Quiz Question
+## Quiz Sualı
 
-What UID decides what access to grant?
+Hansı UİD hansı çixişa icazə verilməsini təyin edir?
 
-## Quiz Answer
+
+## Quiz Cavabı
 
 effective
+
