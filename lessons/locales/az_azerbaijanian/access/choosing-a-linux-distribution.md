@@ -1,12 +1,12 @@
 # Linux paylamasının seçilməsi
 
-Əvvəlki dərsdə, gündə milyonlarla cihazı gücləndirən Linux nüvəsi haqqında öyrəndik. İrəliyə getməzdən əvvəl bir məsələni dəqiqləsdirmək istiyərdim, Linux termini əslində tamamilə səhv bir addır, çünki əslində Linux nüvə adıdır. Bununla belə, bir çox paylamalar Linux nüvəsindən istifadə edir, buna görə də adətən Linux əməliyyat sistemləri kimi tanınır.
+Əvvəlki dərsdə, gündə milyonlarla cihazı gücləndirən Linux nüvəsi haqqında öyrəndik. Davam etməzdən əvvəl bir məsələni dəqiqləsdirmək istiyərdim, Linux termini əslində tamamilə səhv bir addır, çünki əslində Linux nüvə adıdır. Bununla belə, bir çox paylamalar Linux nüvəsindən istifadə edir, buna görə də adətən Linux əməliyyat sistemləri kimi tanınır.
 
 Linux sistemi üç əsas hissəyə bölünür:
 
 - **Aparat** - Buraya sisteminizin işlətdiyi bütün avadanlıqlar, həmçinin yaddaş, CPU, disklər və s. daxildir.
 
-- **Linux nüvəsi** - Yuxarıda müzakirə etdiyimiz kimi, nüvə əməliyyat sisteminin nüvəsidir. O, avadanlığı idarə edir və sistemlə necə qarşılıqlı əlaqədə olmağı ona deyir.
+- **Linux nüvəsi** - Yuxarıda müzakirə etdiyimiz kimi, nüvə əməliyyat sisteminin mərkəzidir. O, avadanlığı idarə edir və sistemlə necə qarşılıqlı əlaqədə olmağı ona deyir.
 
 - **İstifadəçi Məkanı** - Bu, sizin kimi istifadəçilərin sistemlə birbaşa əlaqə quracağı yerdir.
 
